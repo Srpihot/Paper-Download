@@ -7,12 +7,18 @@ import tkinter.messagebox
 """
 author : Srpihot
 github : https://github.com/Srpihot
-update_time : 2020-06-11
-version : Fuck-Paper-download v1.0
+update_time : 2020-06-15
+version : Fuck-Paper-download v1.1
 """
 def get_link(url_get):
         paper_link=url_get.get()
         try:
+                if 'wanfangdata.com.cn' in paper_link:
+                        #遇到万方进行参数处理
+                        temp_re = re.compile('(^|&)id=([^&]*)',re.S)
+                        temp = re.findall(temp_re,paper_link)
+                        paper_link = 'http://d.wanfangdata.com.cn/Periodical/'+temp[0][1]
+
                 headers={
                         'Host': 'ifish.fun',
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0',
@@ -36,7 +42,7 @@ def get_link(url_get):
 
 def main():
         windows = tk.Tk()
-        windows.title('Paper-Download V1.0 By-Srpihot*')
+        windows.title('Paper-Download V1.1 By-Srpihot*')
         windows.geometry('500x150')
         windows.iconbitmap(r'./lib/icon.ico')
         icon = tk.PhotoImage(file=r'./lib/icon.png')
