@@ -17,7 +17,7 @@
    V1.1   修复万方下载问题
 ```
 
-[国内下载请移步此处]（http://srpihot.site/paper-download）
+[国内下载请移步此处](http://srpihot.site/paper-download)
 
 ### 使用截图
 
